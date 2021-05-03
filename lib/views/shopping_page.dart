@@ -59,6 +59,19 @@ class ShoppingPage extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Obx(
+                              () => IconButton(
+                                icon: controller
+                                        .products[index].isFavorite.value
+                                    ? Icon(Icons.check_box_rounded)
+                                    : Icon(
+                                        Icons.check_box_outline_blank_outlined),
+                                onPressed: () {
+                                  controller.products[index].isFavorite
+                                      .toggle();
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -67,18 +80,24 @@ class ShoppingPage extends StatelessWidget {
                 );
               }),
             ),
-            GetBuilder<CardController>(builder: (controller) {
+            /*GetBuilder<CardController>(builder: (controller) {
               return Text(
                 'Total amount: \$ ${cardController.testAmount}',
                 style: TextStyle(fontSize: 32, color: Colors.white),
               );
-            }),
+            }),*/
             /*GetX<CardController>(builder: (cardController) {
               return Text(
                 'Total amount: \$ ${cardController.totalPrice}',
                 style: TextStyle(fontSize: 32, color: Colors.white),
               );
             }),*/
+            Obx(() {
+              return Text(
+                'Total amount: \$ ${cardController.totalPrice}',
+                style: TextStyle(fontSize: 32, color: Colors.white),
+              );
+            }),
             SizedBox(
               height: 100,
             )
