@@ -67,12 +67,18 @@ class ShoppingPage extends StatelessWidget {
                 );
               }),
             ),
-            GetX<CardController>(builder: (cardController) {
+            GetBuilder<CardController>(builder: (controller) {
+              return Text(
+                'Total amount: \$ ${cardController.testAmount}',
+                style: TextStyle(fontSize: 32, color: Colors.white),
+              );
+            }),
+            /*GetX<CardController>(builder: (cardController) {
               return Text(
                 'Total amount: \$ ${cardController.totalPrice}',
                 style: TextStyle(fontSize: 32, color: Colors.white),
               );
-            }),
+            }),*/
             SizedBox(
               height: 100,
             )
